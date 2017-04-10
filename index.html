@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+
+<body ng-app="congress">
+
+<div ng-controller="representative">
+
+
+    Enter your Zip Code <input type="text" ng-change="updateReps()" ng-model="userZip">
+
+
+    <table>
+        <th>reps name</th>
+        <tr ng-repeat="singular in representatives" >
+            <!--ng-repeat="characterFromDifferentAPI in apiInfoSearchNumber2"-->
+        <!--&gt;-->
+            <td>{{singular.first_name}}</td>
+            <!--<td>{{representativeFromDifferentAPI.info}}</td>-->
+            <!--<td><img width="100" ng-src="{{representative.thumbnail.path}}.{{representative.thumbnail.extension}}"></td>-->
+        </tr>
+
+        <!--<tr ng-repeat="character in apiInfoSearch" ng-repeat="characterFromDifferentAPI in apiInfoSearchNumber2">-->
+            <!--<th>{{representative.name}}</th>-->
+            <!--<td>{{representativeFromDifferentAPI.info}}</td>-->
+            <!--<td><img width="250" height="250" ng-src="{{character.thumbnail.path}}.{{character.thumbnail.extension}}"></td>-->
+        <!--</tr>-->
+
+    </table>
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+<script type="text/javascript">
+
+    var app = angular.module("congress", []);
+
+    app.controller("representative",["$scope", "$http", function($scope, $http){
+
+        $scope.userZip== ""
+        $http.get("https://congress.api.sunlightfoundation.com/legislators/")
+        .then(function(response){
+            $scope.representatives = response.results;
+        });
+
+
+        $scope.updateReps== function(){
+            $http.get("https://congress.api.sunlightfoundation.com/legislators/locate?zip="+ $scope.userZip)
+            .then(function(response){
+                $scope.representatives = response.results;
+            });
+        }
+
+    }]);
+
+
+
+
+
+</script>
+</body>
+</html>
