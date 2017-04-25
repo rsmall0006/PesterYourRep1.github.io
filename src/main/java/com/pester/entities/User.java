@@ -6,8 +6,7 @@ import javax.persistence.*;
  * Created by octavio on 4/25/17.
  */
 @Entity
-@Table
-
+@Table(name = "users")
 public class User {
 
     @Id
@@ -25,6 +24,10 @@ public class User {
 
     @Column(nullable = false)
     String password;
+
+    public User(){
+
+    }
 
     public User(String firstName, String lastName, String emailAddress, String password) {
         this.firstName = firstName;

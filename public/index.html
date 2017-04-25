@@ -13,9 +13,7 @@
 </head>
 <body>
 <div id="fullscreen_bg" class="fullscreen_bg"/>
-<form class="form-login">
-    </div>
-</form>
+
 
 <div id="fullscreen_bg2" class="fullscreen_bg2"/>
     <div class="container">
@@ -25,7 +23,7 @@
                     <div class="panel-body">
                         <h3 class="text-center">
                             LOG IN</h3>
-                        <form class="form form-login" role="form" action="/login" method="post">
+                        <form action="/login" method="post" class="form form-login" role="form" id="loginForm">
                             <div class="form-group">
                                 <div class="input-group">
                                     <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
@@ -41,11 +39,11 @@
                             </div>
                             <!--<a href="index.html" class="btn btn-sm btn-primary btn-block" role="button">-->
                                 <!--SUBMIT</a>-->
-                            <button type="submit" class="btn btn-sm btn-primary btn-block" >LOG IN</button>
+                            <button type="button" onclick="document.getElementById('loginForm').submit();" class="btn btn-sm btn-primary btn-block" >LOG IN</button>
                             <!--<button type="submit">Login</button>-->
                         </form>
                     </div>
-                    <form class="form-signup">
+
 
                     <div class="panel-body text-center">
                         If you have already created an account previously, use the LOG IN box at the top.
@@ -57,7 +55,7 @@
                     <div class="panel-body">
                      <!--   <h3 class="text-center">
                             SIGN UP</h3> -->
-                        <form class="form form-signup" role="form" action="/signUp" method="post">
+                        <form  action="/signUp" method="POST" class="form form-login" role="form" id="signupForm">
                             <div class="form-group">
                                 <div class="input-group">
                             <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span>
@@ -88,16 +86,15 @@
 
                         <!--<a href="index.html" class="btn btn-sm btn-primary btn-block" role="button">-->
                             <!--SUBMIT</a>-->
-                        <button type="submit" class="btn btn-sm btn-primary btn-block" >SIGN UP</button>
+                        <button type="button" onClick="document.getElementById('signupForm').submit();" class="btn btn-sm btn-primary btn-block">SIGN UP</button>
+
                         <!--<button type="submit">Login</button>-->
                         </form>
                     </div>
-                    </form>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 </body>
 </html>

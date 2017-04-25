@@ -1,6 +1,6 @@
 package com.pester.controllers;
 
-import com.pester.entities.LogInUser;
+//import com.pester.entities.LogInUser;
 import com.pester.entities.User;
 import com.pester.services.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestParam;
+//import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
 
@@ -43,15 +44,18 @@ public class PesterYourRepController {
 */
 
     @RequestMapping(path = "/login", method = RequestMethod.POST)
-    public String login(HttpSession session, String emailAddress, String password) throws Exception {
+    public String login(HttpSession session,
+                        @RequestParam String emailAddress,
+                        @RequestParam String password
+                        ) throws Exception {
         User user = users.findFirstByEmailAddress(emailAddress);
         if (!emailAddress.equals(user.getEmailAddress())) {
             throw new Exception("Invalid email, please SIGN UP");
         } else if (!password.equals(user.getPassword())) {
             throw new Exception("Incorrect password");
         } else {
-            session.setAttribute("emailAddress", emailAddress);
-            return "redirect:/";
+//            session.setAttribute("emailAddress", emailAddress);
+            return "redirect:/repSearch.html";
         }
     }
 
@@ -61,8 +65,13 @@ public class PesterYourRepController {
         return "redirect:/";
     }
 
-    @RequestMapping(path = "/SignUp", method = RequestMethod.POST)
-    public String signUp(HttpSession session, String firstName, String lastName, String emailAddress, String password) throws Exception {
+    @RequestMapping(path = "/signUp", method = RequestMethod.POST)
+    public String signUp(HttpSession session,
+                         @RequestParam String firstName,
+                         @RequestParam String lastName,
+                         @RequestParam String emailAddress,
+                         @RequestParam String password
+                         ) throws Exception {
         User user2 = new User(firstName, lastName, emailAddress, password);
         users.save(user2);
         User user1 = users.findFirstByEmailAddress(emailAddress);
