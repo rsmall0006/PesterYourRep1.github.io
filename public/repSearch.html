@@ -117,7 +117,7 @@ background: SkyBlue;
 
 
         $http.get("https://congress.api.sunlightfoundation.com/legislators/locate?zip=00000", {
-    headers: {'Access-Control-Allow-Origin': 'https://enigmatic-dawn-44982.herokuapp.com'}
+    headers: {'Access-Control-Allow-Origin': '*/*'}
 })
         .then(function(response){
             $scope.representatives = response;
@@ -125,7 +125,7 @@ background: SkyBlue;
         $scope.updateReps= function(){
              //alert('findRep vcalled');
              $http.get("https://congress.api.sunlightfoundation.com/legislators/locate?zip=" + $scope.userZip, {
-    headers: {'Access-Control-Allow-Origin': 'https://enigmatic-dawn-44982.herokuapp.com'}
+    headers: {'Access-Control-Allow-Origin': '*/*'}
 } )
             .then(function(response){
                 $scope.representatives = response;
