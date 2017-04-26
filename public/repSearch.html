@@ -127,6 +127,27 @@ background: SkyBlue;
                 $scope.representatives = response;
             });
         }
+
+
+            var url = "https://congress.api.sunlightfoundation.com/legislators/locate?zip=00000";
+        $http({
+            method: 'JSONP',
+            url: url
+        }).
+        success(function(status) {
+            //your code when success
+            
+            alert('status' + status);
+
+
+        }).
+        error(function(status) {
+            alert('error' + status);
+            //your code when fails
+        });
+
+
+
     }]);
 </script>
 
