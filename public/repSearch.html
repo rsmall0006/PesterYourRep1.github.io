@@ -114,13 +114,19 @@ background: SkyBlue;
     var app = angular.module("congress", []);
     app.controller("representative",["$scope", "$http", function($scope, $http){
         $scope.userZip= ""
-        $http.get("https://congress.api.sunlightfoundation.com/legislators/locate?zip=00000")
+
+
+        $http.get("https://congress.api.sunlightfoundation.com/legislators/locate?zip=00000", {
+    headers: {'Access-Control-Allow-Origin': 'https://enigmatic-dawn-44982.herokuapp.com'}
+})
         .then(function(response){
             $scope.representatives = response;
         });
         $scope.updateReps= function(){
              //alert('findRep vcalled');
-             $http.get("https://congress.api.sunlightfoundation.com/legislators/locate?zip=" + $scope.userZip)
+             $http.get("https://congress.api.sunlightfoundation.com/legislators/locate?zip=" + $scope.userZip, {
+    headers: {'Access-Control-Allow-Origin': 'https://enigmatic-dawn-44982.herokuapp.com'}
+} )
             .then(function(response){
                 $scope.representatives = response;
             });
