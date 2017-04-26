@@ -1,0 +1,5 @@
+com/pester/entities/User.class
+com/pester/controllers/PesterYourRepController.class
+com/pester/services/UserRepository.class
+com/pester/PesterYourRepApplication.class
+com/pester/entities/LogInUser.class
