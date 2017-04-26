@@ -1,6 +1,6 @@
 package com.pester.services;
 
-import com.pester.entities.LogInUser;
+//import com.pester.entities.LogInUser;
 import com.pester.entities.User;
 import org.springframework.data.repository.CrudRepository;
 
