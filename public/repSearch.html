@@ -116,17 +116,13 @@ background: SkyBlue;
         $scope.userZip= ""
 
 
-        $http.get("https://congress.api.sunlightfoundation.com/legislators/locate?zip=00000", {
-    headers: {'Access-Control-Allow-Origin': '*/*'}
-})
+        $http.get('https://congress.api.sunlightfoundation.com/legislators/locate?zip=00000')
         .then(function(response){
             $scope.representatives = response;
         });
         $scope.updateReps= function(){
              //alert('findRep vcalled');
-             $http.get("https://congress.api.sunlightfoundation.com/legislators/locate?zip=" + $scope.userZip, {
-    headers: {'Access-Control-Allow-Origin': '*/*'}
-} )
+             $http.get('https://congress.api.sunlightfoundation.com/legislators/locate?zip=' + $scope.userZip )
             .then(function(response){
                 $scope.representatives = response;
             });
