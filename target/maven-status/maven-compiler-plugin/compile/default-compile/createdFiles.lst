@@ -1,4 +1,5 @@
 com/pester/controllers/PesterYourRepController.class
+com/pester/PesterYourRepApplication$1.class
 com/pester/PesterYourRepApplication.class
 com/pester/services/UserRepository.class
 com/pester/entities/User.class

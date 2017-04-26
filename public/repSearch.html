@@ -116,35 +116,48 @@ background: SkyBlue;
         $scope.userZip= ""
 
 
-        $http.get('https://congress.api.sunlightfoundation.com/legislators/locate?zip=00000')
+        <!--$http.get('https://congress.api.sunlightfoundation.com/legislators/locate?zip=00000')-->
+        <!--.then(function(response){-->
+            <!--$scope.representatives = response;-->
+        <!--});-->
+        <!--$scope.updateReps= function(){-->
+             <!--//alert('findRep vcalled');-->
+             <!--$http.get('https://congress.api.sunlightfoundation.com/legislators/locate?zip=' + $scope.userZip )-->
+            <!--.then(function(response){-->
+                <!--$scope.representatives = response;-->
+            <!--});-->
+        <!--}-->
+
+
+
+        $http({method: 'JSONP', url: 'https://congress.api.sunlightfoundation.com/legislators/locate?zip=00000'})
         .then(function(response){
             $scope.representatives = response;
         });
         $scope.updateReps= function(){
              //alert('findRep vcalled');
-             $http.get('https://congress.api.sunlightfoundation.com/legislators/locate?zip=' + $scope.userZip )
+             $http({mehtod: 'JSONP', url: 'https://congress.api.sunlightfoundation.com/legislators/locate?zip=' + $scope.userZip })
             .then(function(response){
                 $scope.representatives = response;
             });
         }
 
 
-            var url = "https://congress.api.sunlightfoundation.com/legislators/locate?zip=00000";
-        $http({
-            method: 'JSONP',
-            url: url
-        }).
-        success(function(status) {
-            //your code when success
-            
-            alert('status' + status);
+            <!--var url = "https://congress.api.sunlightfoundation.com/legislators/locate?zip=00000";-->
+        <!--$http({-->
+            <!--method: 'JSONP',-->
+            <!--url: url-->
+        <!--}).-->
+        <!--success(function(response) {-->
+            <!--//your code when success-->
+            <!--$scope.representatives = response;-->
 
 
-        }).
-        error(function(status) {
-            alert('error' + status);
-            //your code when fails
-        });
+        <!--}).-->
+        <!--error(function(status) {-->
+            <!--alert('error: ' + status);-->
+            <!--//your code when fails-->
+        <!--});-->
 
 
 
